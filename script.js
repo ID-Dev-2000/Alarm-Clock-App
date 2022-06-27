@@ -29,14 +29,18 @@ setInterval(function() {
     }
     timeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`
 
-    currentTimeCheck = `0${hours}:${minutes}`
+    if (hours > 9) {
+        currentTimeCheck = `${hours}:${minutes}`
+    } else {
+        currentTimeCheck = `0${hours}:${minutes}`
+    }
 
     if (currentTimeCheck == userAlarmTime) {
         alarmSound.load()
         alarmSound.play()
         alarmSound.loop = true
         userAlarmTime = 0
-        alarmStatus.innerHTML = 'Alarm Activated!'
+        alarmStatus.innerHTML = 'Active'
         alarmStop.disabled = false
         alarmStop.addEventListener('click', function() {
             alarmSound.pause()
