@@ -41,9 +41,11 @@ setInterval(function() {
         alarmSound.loop = true
         userAlarmTime = 0
         alarmStatus.innerHTML = 'Active'
+        alarmStatus.style.color = 'Red'
         alarmStop.disabled = false
         alarmStop.addEventListener('click', function() {
             alarmSound.pause()
+            alarmStatus.style.color = 'Black'
             alarmStatus.innerHTML = 'not yet set'
             userAlarmTime = ''
             alarmStop.disabled = true
